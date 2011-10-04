@@ -1,3 +1,3 @@
-NAME    = paraview_$(ROLLCOMPILER)_$(ROLLMPI)_$(ROLLNETWORK)
-VERSION = 3.10.1
+NAME    = paraview
+VERSION = 3.12.0
 RELEASE = 1
