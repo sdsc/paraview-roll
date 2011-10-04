@@ -1,4 +1,4 @@
-ROLLNAME = paraview$(ROLLSUFFIX)
+ROLLNAME = paraview
 RELEASE  = 0
 COLOR    = orange
 
