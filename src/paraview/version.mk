@@ -1,3 +1,3 @@
 NAME    = paraview
-VERSION = 3.12.0
+VERSION = 3.10.1
 RELEASE = 1
