@@ -109,7 +109,7 @@ MPISETUP = \
 -include $(ROCKSROOT)/etc/Rules.mk
 
 build:
-	tar xvf $(SOURCE).tar.gz
+	tar xvf $(SOURCE).tgz
         
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
