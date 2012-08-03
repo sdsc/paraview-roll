@@ -15,17 +15,6 @@ Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
 </changelog>
 
 <package>paraview</package>
-
-<post>
-<file name="/etc/profile.d/paraview.csh" perms="0755" >
-set path = ( /opt/cmake/paraview $path )
-setenv LD_LIBRARY_PATH /usr/local/apps:$LD_LIBRARY_PATH
-</file>
-
-<file name="/etc/profile.d/paraview.sh" perms="0755" >
-export PATH=/opt/cmake/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/apps:$LD_LIBRARY_PATH
-</file>
-</post>
+<package>paraview-modules</package>
 
 </kickstart>

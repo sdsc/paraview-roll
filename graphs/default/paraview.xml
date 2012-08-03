@@ -21,22 +21,11 @@ Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
   <tail>paraview-install</tail>
 </order>
 
-<edge from="envmodules-common">
-  <to>paraview-modules-common</to>
-</edge>
-<order head="envmodules-common">
-  <tail>paraview-modules-common</tail>
-</order>
-
 <edge from="server">
   <to>paraview_doc</to>
 </edge>
 <order head="server">
   <tail>paraview_doc</tail>
-</order>
-
-<order head="paraview-install">
-  <tail>paraview-modules-common</tail>
 </order>
 
 <edge from="base">
