@@ -1,3 +1,4 @@
 #%Module1.0
+setenv PARAVIEWHOME /opt/paraview
 prepend-path PATH /opt/paraview/bin
 prepend-path LD_LIBRARY_PATH /usr/local/lib
