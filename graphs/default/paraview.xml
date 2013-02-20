@@ -28,13 +28,6 @@ Copyright (c) 2005-2008 Sandia Corporation, Kitware Inc.
   <tail>paraview_doc</tail>
 </order>
 
-<edge from="base">
-  <to>paraview-roll-test</to>
-</edge>
-<order head="base">
-  <tail>paraview-roll-test</tail>
-</order>
-
 <edge>form="bz2-common">
   <to>paraview-install</to>
 </edge>
