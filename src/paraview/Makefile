@@ -62,52 +62,6 @@ REDHAT.ROOT = $(CURDIR)/../../
 include Rules.mk
 include pull.mk
 
-#=======================================================================
-# ROLLCOMPILER, ROLLNETWORK & ROLLMPI defaults
-#=======================================================================
-ifndef ROLLCOMPILER
-  ROLLCOMPILER = gnu
-endif
-ifndef ROLLNETWORK
-  ROLLNETWORK = eth
-endif
-ifndef ROLLMPI
-  ROLLMPI = openmpi
-  MPILIB = "-pthread -L/opt/mx/lib -L/opt/torque/lib -Wl,--rpath -Wl,/opt/torque/lib -L/opt/openmpi/gnu/mx/lib -lmpi_cxx -lmpi -lopen-rte -lopen-pal -lmyriexpress -ltorque -ldl -lnsl -lutil -lm"
-endif
-
-#=======================================================================
-# Compiler setup
-#=======================================================================
-COMPILERSETUP = \
-  if test -e /etc/profile.d/modules.sh; then \
-    . /etc/profile.d/modules.sh; \
-    module load gnu; \
-  fi
-
-#=======================================================================
-# MPI setup
-#=======================================================================
-ifeq ("$(ROLLNETWORK)", "eth")
-  MPI= $(ROLLMPI)
-else
-  MPI= $(ROLLMPI)_$(ROLLNETWORK)
-endif
-
-MPISETUP = \
-  if test -e /etc/profile.d/modules.sh; then \
-    . /etc/profile.d/modules.sh; \
-    module load $(MPI); \
-  fi; \
-  export MPI_HOME=`which mpicxx | perl -pe 's!/bin/.*!!'`; \
-  if test -z "$${MPI_HOME}"; then \
-    export MPI_HOME=/opt/$(ROLLMPI); \
-  fi; \
-  echo Using MPI from $${MPI_HOME}; \
-  export PATH=$${PATH}:$${MPI_HOME}/bin; \
-  export LD_LIBRARY_PATH=$${LD_LIBRARY_PATH}:$${MPI_HOME}/lib
-
-
 build: $(SRC_DIRS)
 	( \
 	  cd $(SOURCE_DIR); \
@@ -117,7 +71,7 @@ build: $(SRC_DIRS)
 	@echo "::: Package $(NAME) build complete :::"
 	
 install::
-	mkdir -p $(ROOT)/$(PKGROOT)
+	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	( \
 	  cd $(SOURCE_DIR); \
 	  cp -r bin lib share $(ROOT)/$(PKGROOT); \
@@ -126,4 +80,3 @@ install::
 
 clean::
 	rm -rf $(SOURCE_DIR)
-
