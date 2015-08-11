@@ -1,5 +1,7 @@
 # SDSC "paraview" roll
 
+The paraview-roll is deprecated; SDSC no longer supports or develops it.
+
 ## Overview
 
 This roll bundles the ParaView data analysis and visualization package.
